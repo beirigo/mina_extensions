@@ -1,6 +1,20 @@
 # MinaExtensions
 
-TODO: Write a gem description
+Set of mina extension tasks
+
+## Sidekiq
+Tasks for managing Sidekiq workers.
+
+```ruby
+invoke :'sidekiq:quiet'
+invoke :'sidekiq:stop'
+invoke :'sidekiq:start'
+invoke :'sidekiq:restart'
+```
+
+Credits to @Mic92 https://github.com/Mic92/mina
+## Resque
+## Rapns
 
 ## Installation
 
