@@ -8,9 +8,9 @@ Gem::Specification.new do |gem|
   gem.version       = MinaExtensions::VERSION
   gem.authors       = ["marcosbeirigo"]
   gem.email         = ["marcosbeirigo@gmail.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
-  gem.homepage      = ""
+  gem.description   = "Set of mina extension tasks"
+  gem.summary       = "Set of mina extension tasks"
+  gem.homepage      = "https://github.com/marcosbeirigo/mina_extensions"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
