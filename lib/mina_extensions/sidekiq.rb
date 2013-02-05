@@ -2,7 +2,7 @@
 # Adds settings and tasks for managing Sidekiq workers.
 #
 # ## Usage example
-#     require 'mina/sidekiq'
+#     require 'mina_extensions/sidekiq'
 #     ...
 #
 #     task :deploy => :enviroment do
@@ -48,7 +48,7 @@ set_default :sidekiq_log, "./log/sidekiq.log"
 
 # ### sidekiq_pid
 # Sets the path to the pid file of a sidekiq worker
-set_default :sidekiq_pid, lambda { "#{deploy_to}/#{shared_path}/pids/sidekiq.pid" }
+set_default :sidekiq_pid, lambda { "#{deploy_to}/#{shared_path}/tmp/pids/sidekiq.pid" }
 
 # ## Control Tasks
 namespace :sidekiq do

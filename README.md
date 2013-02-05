@@ -6,6 +6,7 @@ Set of mina extension tasks
 Tasks for managing Sidekiq workers.
 
 ```ruby
+require 'mina_extensions/sidekiq'
 invoke :'sidekiq:quiet'
 invoke :'sidekiq:stop'
 invoke :'sidekiq:start'
