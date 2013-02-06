@@ -34,7 +34,7 @@ set_default :sidekiqctl, lambda { "#{bundle_prefix} sidekiqctl" }
 
 # ### sidekiq_timeout
 # Sets a upper limit of time a worker is allowed to finish, before it is killed.
-set_default :sidekiq_timeout, 60
+set_default :sidekiq_timeout, 15
 
 # ### sidekiq_config
 # Sets the path to the configuration file of sidekiq
@@ -92,7 +92,7 @@ namespace :sidekiq do
       if [ -f #{deploy_to}/#{current_path}/#{sidekiq_config} ]
       then
         echo "-----> Start sidekiq"
-        #{echo_cmd %[(cd #{deploy_to}/#{current_path}; nohup #{sidekiq} -e #{rails_env} -C #{sidekiq_config} -P #{sidekiq_pid} >> #{sidekiq_log}) ] }
+        #{echo_cmd %[(cd #{deploy_to}/#{current_path}; nohup #{sidekiq} -e #{rails_env} -C #{sidekiq_config} -P #{sidekiq_pid} >> #{sidekiq_log} 2>&1 </dev/null &) ] }
       else
         echo "! ERROR: sidekiq:start failed."
         echo "! File #{sidekiq_config} does not exist."
