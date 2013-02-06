@@ -12,6 +12,17 @@ invoke :'sidekiq:stop'
 invoke :'sidekiq:start'
 invoke :'sidekiq:restart'
 ```
+If you are using rvm, you need to invoke `rvm:use` before. That's how I do it:
+```ruby
+task :enviroment do
+  invoke :'rvm:use[ruby-1.9.3@mygemset]'
+end
+
+task :deploy => :environment do
+	#lots of stuff here
+	invoke :'sidekiq:restart'
+end
+```
 
 Credits to @Mic92 https://github.com/Mic92/mina
 ## Resque
