@@ -106,4 +106,10 @@ namespace :sidekiq do
     invoke :'sidekiq:stop'
     invoke :'sidekiq:start'
   end
+
+  # ### sidekiq:log
+  desc "Tail sidekiq log"
+  task :log do
+    queue %[tail -fn 50 #{deploy_to}/#{shared_path}/#{sidekiq_log}]
+  end
 end
