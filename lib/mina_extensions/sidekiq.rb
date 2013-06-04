@@ -58,8 +58,8 @@ namespace :sidekiq do
   # ### sidekiq:quiet
   desc "Quiet sidekiq (stop accepting new work)"
   task :quiet do
-    queue %[ 
-      if [ -f #{sidekiq_pid} ]
+    queue %[
+      if [ -f #{sidekiq_pid} ] && kill -0 `cat #{sidekiq_pid}` > /dev/null 2>&1;
       then
         echo "-----> Quiet sidekiq (stop accepting new work)"
         #{echo_cmd %{(cd #{deploy_to}/#{current_path} && #{sidekiqctl} quiet #{sidekiq_pid})} }
@@ -74,7 +74,7 @@ namespace :sidekiq do
   desc "Stop sidekiq"
   task :stop do
     queue %[
-      if [ -f #{sidekiq_pid} ]
+      if [ -f #{sidekiq_pid} ] && kill -0 `cat #{sidekiq_pid}` > /dev/null 2>&1;
       then
         echo "-----> Stop sidekiq"
         #{echo_cmd %[(cd #{deploy_to}/#{current_path} && #{sidekiqctl} stop #{sidekiq_pid} #{sidekiq_timeout})]}
