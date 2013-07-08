@@ -2,6 +2,13 @@
 
 Set of mina extension tasks
 
+## Passenger
+
+```ruby
+require 'mina_extensions/passenger'
+invoke :'passenger:restart'
+```
+
 ## Sidekiq
 Tasks for managing Sidekiq workers.
 
