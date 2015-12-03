@@ -11,6 +11,7 @@ Gem::Specification.new do |gem|
   gem.description   = "Set of mina extension tasks"
   gem.summary       = "Set of mina extension tasks"
   gem.homepage      = "https://github.com/marcosbeirigo/mina_extensions"
+  gem.license       = "MIT"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
